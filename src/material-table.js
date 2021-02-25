@@ -418,6 +418,15 @@ export default class MaterialTable extends React.Component {
           result.source.index,
           result.destination.index
         );
+      } else if (
+        this.props.onColumnGrouped &&
+        result.destination.droppableId === "groups" &&
+        result.source.droppableId === "headers"
+      ) {
+        this.props.onColumnGrouped(
+          result.source.index,
+          result.destination.index
+        );
       }
     });
   };
